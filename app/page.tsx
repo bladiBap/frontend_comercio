@@ -1,113 +1,115 @@
+"use client";
+import { Link } from "@nextui-org/react";
 import Image from "next/image";
-
 export default function Home() {
+  const redirectoToContact = () => {
+    let numberWhatsapp = "75890424";
+    let message = "Hola, me gustaría contactar con ustedes";
+    window.open(`https://wa.me/591${numberWhatsapp}?text=${message}`, "_blank");
+  };
+
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:size-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+    <main className="main min_height">
+      <section className="section-1 padding-main">
+        <div className="section-1-info">
+          <h2 className="title-1">
+            Consumir lo nuestro nunca se sintió tan bien
+          </h2>
+          <p className="paragraph-1">
+            Somos un emprendimiento que intenta concientizar el uso de empaques
+            plásticos en productos alimenticios, ofreciendo una alternativa más
+            sostenible y amigable con el medio ambiente.
+          </p>
+          <Link
+            className="link-Button cursor-pointer"
+            onClick={() => {
+              redirectoToContact();
+            }}
           >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+            Contactanos
+          </Link>
         </div>
-      </div>
-
-      <div className="relative z-[-1] flex place-items-center before:absolute before:h-[300px] before:w-full before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 sm:before:w-[480px] sm:after:w-[240px] before:lg:h-[360px]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className="mb-32 grid text-center lg:mb-0 lg:w-full lg:max-w-5xl lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Docs{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Find in-depth information about Next.js features and API.
+        <figure className="container-image-1">
+          <Image
+            className="imagen-1 image-style imagen-animation"
+            src="/image/diseno-mark3.jpg"
+            alt="Logo"
+            width={40}
+            height={40}
+            unoptimized
+            priority={true}
+          />
+        </figure>
+      </section>
+      <section className="section-2 padding-main">
+        <div className="section-2-container-mision">
+          <h2 className="title-2 txt-justify">Horneatitos</h2>
+          <p className="paragraph-1 txt-justify">
+            Estamos ubicados en la ciudad de Santa Cruz de la Sierra, para mayor
+            información, puedes seguirnos en todas nuestras redes sociales.
           </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Learn{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
+        </div>
+        <div className="info-mision-vision">
+          <div className="mision-vision">
+            <div className="section-2-container-mision">
+              <h2 className="title-2 txt-justify">Misión</h2>
+              <p className="paragraph-1 txt-justify">
+              Ofrecer cuñapés abizcochados de alta calidad en envases biodegradables, 
+              promoviendo la tradición culinaria cruceña y el respeto por el medio 
+              ambiente.
+              </p>
+            </div>
+            <div className="section-2-container-mision">
+              <h2 className="title-2 txt-justify">Visión</h2>
+              <p className="paragraph-1 txt-justify">
+              Ser líderes en el mercado de horneados tradicionales expandiendo nuestra
+              presencia a nivel nacional e inspirar la adopción de prácticas sostenibles
+              y respetuosas con el medio ambiente.
+              </p>
+            </div>
+          </div>
+          <figure className="banner-container">
+            <Image
+              className="imagen-banner radius-top"
+              src="/image/banner-1.jpg"
+              alt="Banner"
+              width={40}
+              height={40}
+              unoptimized
+              priority={true}
+            />
+          </figure>
+        </div>
+      </section>
+      <section className="section-3 padding-main">
+        <div className="antecedente-container">
+          <h2 className="title-2 border-bottom">Antecedentes</h2>
+          <p className="paragraph-1">
+          Horneatito es una empresa boliviana fundada hace seis años en la ciudad 
+          de Santa Cruz de la Sierra. Desde sus inicios, Horneatito se ha dedicado 
+          a la producción y distribución de cuñapes abizcochados, un producto 
+          tradicional boliviano altamente valorado por su sabor y calidad. <br /><br />
+          Nuestra fábrica, estratégicamente ubicada en el segundo anillo de Paragua, 
+          nos permite servir de manera eficiente a nuestros clientes en varios 
+          departamentos del país, incluyendo La Paz, Cochabamba, Tarija, Chuquisaca y Beni.
+          <br /><br />
+          Nuestro equipo está compuesto por personas altamente capacitadas 
+          y dedicadas, que comparten nuestra visión de ofrecer productos de 
+          excelencia mientras cuidamos de nuestro entorno.
           </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Templates{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Explore starter templates for Next.js.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Deploy{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-balance text-sm opacity-50">
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
+        </div>
+        <figure className="container-imagen-antecedentes">
+          <Image
+            className="imagen-antecendetes image-style"
+            src="/image/diseno-mark1.jpg"
+            alt="Logo"
+            width={40}
+            height={40}
+            unoptimized
+            priority={true}
+          />
+        </figure>
+      </section>
     </main>
   );
 }

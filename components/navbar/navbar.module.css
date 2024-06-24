@@ -1,0 +1,23 @@
+.logo{
+    width: 80px;
+    cursor: pointer;
+}
+
+.navbar{
+    z-index: 3;
+}
+
+.navbar header {
+    min-width: 100%;
+    padding: 0px;
+}
+
+.input_nav_web_view {
+    display: flex;
+}
+
+@media screen and (max-width: 767px) {
+    .input_nav_web_view {
+        display: none;
+    }
+}

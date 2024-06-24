@@ -3,31 +3,403 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+    --color-primary: #820300;
+    --color-secondary: #B80000;
+    --color-tertiary: #FF9800;
+    --color-silver: #ececec;
+    --color-white: #ffffff;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+.padding-main{
+    padding-left: 280px;
+    padding-right: 280px;
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+.main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    margin : 50px 0px;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+.section-1{
+    display: grid;
+    width: 100%;
+    gap: 30px;
+    grid-template-columns: 1fr 1fr;
+}
+
+.section-2{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    flex-direction: column;
+    background-color: var(--color-silver);
+    gap: 40px;
+    padding-top: 50px;
+}
+
+.section-3{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+}
+
+.section-2-container-mision{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 700px;
+    gap: 20px;
+}
+
+.container-image-1{
+    width: 100%;
+}
+
+.imagen-1{
+    width: 100%;
+    aspect-ratio: 16/12;
+    max-height: 500px;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+}
+
+.banner-container{
+    width: 100%;
+}
+
+.radius-top{
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+.info-mision-vision{
+    display: flex;
+    Width: 100%;
+    flex-direction: column;
+    gap: 50px;
+    align-items: center;
+}
+
+.mision-vision{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+}
+
+.imagen-banner{
+    width: 100%;
+    max-height: 500px;
+    object-fit: cover;
+    object-position: center;
+}
+
+.image-style{
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.5);
+}
+
+.imagen-animation{
+    transition: all 0.5s;
+}
+
+.imagen-animation:hover{
+    transform: scale(1.01);
+    box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.5);
+    transition: all 0.5s;
+}
+
+.container-imagen-antecedentes{
+    width: 100%;
+}
+
+.imagen-antecendetes{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+}
+
+.section-1-info{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+}
+
+.title-1{
+    font-size: 3rem;
+    font-weight: 700;
+    line-height: 1.1;
+    color: #000000;
+}
+
+.title-2{
+    width: 100%;
+    font-size: 2.2rem;
+    font-weight: 700;
+    line-height: 1.1;
+    color: #000000;
+}
+
+.min_height{
+    min-height: calc(100vh - 100px);
+}
+
+.paragraph-1{
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: #555;
+}
+
+.paragraph-2{
+    font-size: 1rem;
+    font-weight: 400;
+    color: #555;
+}
+
+.txt-justify{
+    text-align: center;
+}
+
+.border-bottom{
+    border-bottom: 2px solid var(--color-secondary);
+}
+
+.link-Button{
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    gap: 10px;
+    padding: 10px 20px;
+    border-radius: 10px;
+    background-color: var(--color-secondary);
+    border: 2px solid var(--color-secondary);
+    color: #ffffff;
+    font-weight: 500;
+    transition: all 0.5s;
+}
+
+.link-Button:hover{
+    color: var(--color-secondary);
+    background-color: #ffffff;
+    transition: all 0.5s;
+}
+
+.cursor-pointer{
+    cursor: pointer;
+}
+
+.franja-top{
+    width: 100%;
+    border-top: 15px solid var(--color-primary);
+}
+
+.antecedente-container{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+}
+
+.button-main{
+    width: 100% !important;
+    display: flex;
+    justify-content: center;
+    font-size: 1rem;
+    font-weight: 500;
+    align-items: center;
+    background-color: var(--color-secondary) !important;
+    color: #ffffff;
+    border: 2px solid var(--color-secondary) !important;
+}
+
+.separation_to_top{
+    margin-top: 50px;
+}
+
+.border_botom_gray{
+    border-bottom: 2px solid #E4E4E7;
+}
+
+.title_page{
+    font-size: 25px;
+    font-weight: 800;
+    margin-bottom: 20px;
+}
+
+@media (max-width: 1600px){
+    .padding-main{
+        padding-left: 150px;
+        padding-right: 150px;
+    }
+}
+
+@media (max-width: 1440px){
+    .padding-main{
+        padding-left: 100px;
+        padding-right: 100px;
+    }
+}
+
+@media (max-width: 1024px){
+    .padding-main{
+        padding-left: 50px;
+        padding-right: 50px;
+    }
+
+    .title_page{
+        font-size: 20px;
+    }
+
+    .section-3{
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px){
+    .padding-main{
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .section-1{
+        grid-template-columns: 1fr;
+    }
+
+    .section-3{
+        grid-template-columns: 1fr;
+    }
+
+    .section-2-container-mision{
+        gap: 10px;
+    }
+
+    .section-2{
+        padding-top: 20px;
+    }
+
+    .section-1-info{
+        gap: 10px;
+    }
+
+    .title-1{
+        font-size: 2.5rem;
+    }
+
+    .title-2{
+        font-size: 2rem;
+    }
+
+    .paragraph-1{
+        font-size: 1rem;
+    }
+
+    .paragraph-2{
+        font-size: 0.9rem;
+    }
+
+    .button-main{
+        font-size: 0.9rem;
+    }
+
+    .title_page{
+        font-size: 19px;
+    }
+
+    .mision-vision{
+        gap: 20px;
+    }
+
+    .main{
+        margin: 20px 0px;
+    }
+
+    .separation_to_top {
+        margin-top: 20px;
+    }
+}
+
+@media (max-width: 425px){
+    .title-1{
+        font-size: 2rem;
+    }
+
+    .title-2{
+        font-size: 1.8rem;
+    }
+
+    .paragraph-1{
+        font-size: 0.9rem;
+    }
+
+    .paragraph-2{
+        font-size: 0.8rem;
+    }
+
+    .button-main{
+        font-size: 0.8rem;
+    }
+
+    .section-2{
+        gap: 20px;
+    }
+
+    .mision-vision{
+        grid-template-columns: 1fr;
+    }
+
+    .link-Button{
+        padding: 5px 10px;
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 375px){
+    .title-1{
+        font-size: 1.8rem;
+    }
+
+    .title-2{
+        font-size: 1.6rem;
+    }
+
+    .paragraph-1{
+        font-size: 0.8rem;
+    }
+
+    .paragraph-2{
+        font-size: 0.7rem;
+    }
+
+    .button-main{
+        font-size: 0.7rem;
+    }
+
+}
+
+@media (max-width: 320px){
+    .title-1{
+        font-size: 1.5rem;
+    }
+
+    .title-2{
+        font-size: 1.3rem;
+    }
+
+    .paragraph-1{
+        font-size: 0.7rem;
+    }
+
+    .paragraph-2{
+        font-size: 0.6rem;
+    }
+
+    .button-main{
+        font-size: 0.6rem;
+    }
 }
