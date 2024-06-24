@@ -2,6 +2,7 @@
 import { Link } from "@nextui-org/react";
 import Image from "next/image";
 export default function Home() {
+  
   const redirectoToContact = () => {
     let numberWhatsapp = "75890424";
     let message = "Hola, me gustaría contactar con ustedes";

@@ -79,3 +79,30 @@
     transition: all 0.7s;
 }
 
+@media screen and (max-width: 768px){
+    .form > h2{
+        font-size: 1.2rem;
+    }
+
+    .form > p{
+        font-size: 0.9rem;
+    }
+}
+
+@media screen and (max-width: 600px){
+    .login_container{
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .login_container > figure{
+        display: none;
+    }
+}
+
+@media screen and (max-width: 425px){
+    .form {
+        padding: 0px;
+    }
+}
+

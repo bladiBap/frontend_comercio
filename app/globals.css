@@ -304,7 +304,7 @@
     }
 
     .button-main{
-        font-size: 0.9rem;
+        font-size: 1rem;
     }
 
     .title_page{
@@ -341,10 +341,6 @@
         font-size: 0.8rem;
     }
 
-    .button-main{
-        font-size: 0.8rem;
-    }
-
     .section-2{
         gap: 20px;
     }
@@ -376,10 +372,6 @@
         font-size: 0.7rem;
     }
 
-    .button-main{
-        font-size: 0.7rem;
-    }
-
 }
 
 @media (max-width: 320px){
@@ -396,10 +388,6 @@
     }
 
     .paragraph-2{
-        font-size: 0.6rem;
-    }
-
-    .button-main{
         font-size: 0.6rem;
     }
 }
