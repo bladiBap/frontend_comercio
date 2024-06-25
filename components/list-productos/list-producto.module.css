@@ -3,6 +3,7 @@
     grid-template-columns: 1fr 1fr 1fr 1fr;
     gap: 2rem;
     z-index: 2 !important;
+    margin-bottom: 2rem;
 }
 
 @media screen and (max-width: 1330px){
@@ -20,6 +21,7 @@
 @media screen and (max-width: 890px){
     .list{
         grid-template-columns: 1fr 1fr;
+        margin-bottom: 1rem;
     }
 }
 

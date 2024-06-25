@@ -1,0 +1,11 @@
+.txtSearch{
+    color: #636363;
+    font-size: 23px;
+    margin-bottom: 10px;
+}
+
+@media screen and (max-width: 1024px) {
+    .txtSearch{
+        font-size: 20px;
+    }
+}

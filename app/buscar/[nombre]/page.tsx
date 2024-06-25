@@ -1,58 +1,44 @@
-"use client"
-import style from './page.module.css';
-import { useEffect, useState, useMemo } from 'react';
-import {useRouter} from 'next/navigation';
-import {buscarProductos} from '@/services/producto-service';
-import { CircularProgress } from "@nextui-org/react";
-import ListProductos from '@/components/list-productos/list-producto';
+import BuscarList from '@/components/buscar-list/buscar-list';
+
+export function generateMetadata({ params }: any) {
+    const nombre = decodeURIComponent(params.nombre);
+    let title = `Buscando ${nombre}`;
+
+    return {
+        title : title,
+        description: `Busca productos relacionados con ${nombre}`,
+        url : `https://horneatitos.shop/buscar/${nombre}`,
+        alternates : {
+            canonical: `https://horneatitos.shop/buscar/${nombre}`
+        },
+        openGraph: {
+            title: title + " | Horneatitos",
+            description: `Busca productos relacionados con ${nombre}`,
+            url: `https://horneatitos.shop/buscar/${nombre}`,
+            siteName: "Horneatitos",
+            images: [
+                {
+                    url: "https://horneatitos.shop/api/public/imagenes/logo.png",
+                    width: 800,
+                    height: 600,
+                    alt: "Horneatitos",
+                },
+            ],
+            locale: "es_BO",
+            type: "website",
+        },
+        keywords : ["Horneatitos", "Panaderia", "Pan", "Bizcocho", "Bizcocho de maiz","Cuñape", 
+            "Cuñape abizcochado", "Jallula","Comercio electronico", "Tienda online", "Tienda virtual", 
+            "Tienda de pan","Panaderia Artesanal", "Panaderia Ecologica", "Panaderia Tradicional", 
+            "Panaderia Responsable", "Panaderia Sostenible", "Panaderia Ecológica"]
+    }
+}
+
+
 
 export default function Buscador ({params}: any) {
-    const [isLoading, setIsLoading] = useState(true);
-    const [nombre, setNombre] = useState('');
-    const [productos, setProductos] = useState([]);
-    const route = useRouter();
-
-    useEffect(() => {
-        if (params.nombre === '') {
-            route.push('/');
-        }else{
-            setNombre(params.nombre.replace(/%20/g, ' '));
-        }
-    },[
-        params,
-        route
-    ]);
-
-    useMemo(() => {
-        if (nombre.trim() !== ""){
-            setIsLoading(true);
-            buscarProductos(nombre).then((response) => {
-                if (response.success){
-                    setProductos(response.data);
-                }
-            }).catch((error) => {
-                console.log(error);
-            }).finally(() => {
-                setIsLoading(false);
-            })
-        }
-    }, [nombre]);
-
 
     return (
-        <>
-            {
-                isLoading ? (
-                    <div className="flex justify-center gap-4 min_height padding-main separation_to_top">
-                        <CircularProgress color="danger" label="Cargando..." />
-                    </div>
-                ):(
-                    <div className={"min_height padding-main separation_to_top"}>
-                        <h1 className="title_page">Resultados de la busqueda: {nombre}</h1>
-                        <ListProductos productos={productos}/>
-                    </div>
-                )
-            }
-        </>
+        <BuscarList params={params} />
     )
 }
