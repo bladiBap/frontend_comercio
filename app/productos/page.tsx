@@ -5,11 +5,11 @@ export const metadata = {
     openGraph: {
         title: "Productos | Horneatitos",
         description: "Conoce todos los productos que tenemos en Horneatitos",
-        url: "https://horneatitos/productos",
+        url: "https://horneatitos.shop/productos",
         siteName: "Horneatitos",
         images: [
             {
-                url: "https://horneatitos/api/public/imagenes/logo.png",
+                url: "https://horneatitos.shop/api/public/imagenes/logo.png",
                 width: 800,
                 height: 600,
                 alt: "Horneatitos",

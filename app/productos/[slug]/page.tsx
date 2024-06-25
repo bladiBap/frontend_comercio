@@ -31,18 +31,18 @@ export async function generateMetadata({ params }: any) {
     return {
         title: producto.nombre,
         description: producto.descripcion,
-        url : "https://horneatitos/productos/" + slug,
+        url : "https://horneatitos.shop/productos/" + slug,
         alternates: {
-            canonical: "https://horneatitos/productos/" + slug,
+            canonical: "https://horneatitos.shop/productos/" + slug,
         },
         openGraph: {
             title: producto.nombre + " | Horneatitos",
             description: producto.descripcion,
-            url: "https://horneatitos/productos/" + slug,
+            url: "https://horneatitos.shop/productos/" + slug,
             siteName: "Horneatitos",
             images: [
                 {
-                    url: "https://horneatitos/api/" + producto.imagenes[0].img_url,
+                    url: "https://horneatitos.shop/api/" + producto.imagenes[0].img_url,
                     width: 800,
                     height: 600,
                     alt: producto.nombre,
@@ -52,7 +52,7 @@ export async function generateMetadata({ params }: any) {
             type: "website",
         },
         keywords: keyWordsTitulo,
-        image: "https://horneatitos/api/" + producto.imagenes[0].img_url,
+        image: "https://horneatitos.shop/api/" + producto.imagenes[0].img_url,
     }
 }
 
