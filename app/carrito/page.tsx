@@ -36,9 +36,9 @@ export default function Carrito() {
     const [direccion, setDireccion] = useState("");
     const [returnFromPayment, setReturnFromPayment] = useState(false);
     const [sucursales, setSucursales] = useState([
-        {id: "1", nombre: "Sucursal 1", direccion: "Av. 6 de Agosto", telefono: "1234567"},
-        {id: "2", nombre: "Sucursal 2", direccion: "Av. 9 de Pampa nam", telefono: "1234567"},
-        {id: "3", nombre: "Sucursal 3", direccion: "Av. 19 de Septiembre", telefono: "1234567"},
+        {id: "1", nombre: "Sucursal 1", direccion: "Av. 6 de Agosto", telefono: "7534567"},
+        {id: "2", nombre: "Sucursal 2", direccion: "Av. 9 de Pampa", telefono: "7734567"},
+        {id: "3", nombre: "Sucursal 3", direccion: "Av. 19 de Septiembre", telefono: "7434567"},
     ]);
     const [sucursalSelected, setSucursalSelected] = useState(new Set(["3"]));
 
@@ -243,7 +243,6 @@ export default function Carrito() {
                                 </div>
                             }
                         </section>
-                        {/* style.hide_checkout_to_left */}
                         <section className={`${style.container_checkout} ${showCheckout ? (
                             returnFromPayment ? style.show_checkout_from_payment : ""
                             ) : ( showPayment ? style.hide_checkout_to_left : style.hide_checkout)}`}>
@@ -288,8 +287,8 @@ export default function Carrito() {
                                             isInvalid={(esTextoVacio(direccion) && clickPagar) ? true : false}
                                             errorMessage = {(esTextoVacio(direccion) && clickPagar) ? "Ingrese una dirección" : ""}
                                         />
-
-                                        <Select 
+                                        <Select
+                                            style={{zIndex: 0}}
                                             className={`${style.show} ${selectedOption === TypeOrder.TIENDA ? "" : style.hide_sucursal}`}
                                             variant='underlined'
                                             label="Selecciona una sucursal"
@@ -299,10 +298,7 @@ export default function Carrito() {
                                         >
                                             {sucursales.map((sucursal) => (
                                             <SelectItem key={sucursal.id}>
-                                                <div className="flex flex-col">
-                                                    <span className="text-small">{sucursal.nombre}</span>
-                                                    <span className="text-tiny text-default-400">{sucursal.direccion}</span>
-                                                </div>
+                                                {sucursal.nombre}
                                             </SelectItem>
                                             ))}
                                         </Select>
@@ -364,15 +360,15 @@ export default function Carrito() {
                                             }}
                                             onApprove = {async (data, actions) => {
                                                 actions.order.capture()
-                                                // let usuario = sessionStorage.getItem("usuario");
-                                                // usuario = JSON.parse(usuario);
-                                                // let res = await crearPedido(usuario.fk_carrito);
-                                                // if (res.success){
-                                                //     showToast("Pedido realizado con éxito", "success");
-                                                //     router.push("/");
-                                                // }else{
-                                                //     showToast("Error al realizar el pedido", "error");
-                                                // }
+                                                let usuario = sessionStorage.getItem("usuario");
+                                                usuario = JSON.parse(usuario);
+                                                let res = await crearPedido(usuario.fk_carrito);
+                                                if (res.success){
+                                                    showToast("Pedido realizado con éxito", "success");
+                                                    router.push("/perfil");
+                                                }else{
+                                                    showToast("Error al realizar el pedido", "error");
+                                                }
                                             }}
                                         />
                                     </PayPalScriptProvider>

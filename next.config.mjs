@@ -9,7 +9,11 @@ const nextConfig = {
             {
                 protocol: 'http',
                 hostname: 'localhost'
-            }
+            },
+            {
+                protocol: 'https',
+                hostname: 'es.web.img2.acsta.net',
+            },
         ],
     },
     reactStrictMode : false,

@@ -40,7 +40,12 @@ const crearUsuario = async (nombre: string, apellido: string, email: string, pas
     });
     const data = await res.json();
     return data;
-
 }
 
-export { getUsuarioById, getUserByToken, login, crearUsuario };
+const getMyProfile = async (iduser): Promise<IResponse> => {
+    const res = await fetch(`${base_url}/get_usuario_info/${iduser}`);
+    const data = await res.json();
+    return data;
+}
+
+export { getUsuarioById, getUserByToken, login, crearUsuario, getMyProfile };

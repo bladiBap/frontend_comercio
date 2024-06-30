@@ -1,6 +1,5 @@
 import ProductosComponent from '@/components/productos/productos';
 
-
 export const metadata = {
     openGraph: {
         title: "Productos | Horneatitos",
@@ -26,8 +25,6 @@ export const metadata = {
 export default function Productos() {
 
     return (
-        <>
-            <ProductosComponent />
-        </>
+        <ProductosComponent />
     )
 }

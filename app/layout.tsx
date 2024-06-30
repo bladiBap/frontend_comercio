@@ -24,7 +24,7 @@ export const metadata = {
               { name : "Bladimir Baptista Gonzales"}],
   publisher: "Horneatitos",
   openGraph: {
-    title: "Horneatitos",
+    title: "Horneatitos | Panadería tradicional y ecológica",
     description: "Bienvenidos a Horneatitos, la panadería tradicionalmente deliciosa y ecológicamente responsable",
     url: "https://horneatitos.shop",
     siteName: "Horneatitos",
@@ -52,7 +52,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="es">
       <head>
         <link rel="icon" type="image/png" sizes="16x16" href="/icon16x16.png" />
         <link rel="icon" type="image/png" sizes="32x32" href="/icon32x32.png" />

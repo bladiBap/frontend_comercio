@@ -25,13 +25,13 @@ export default function Footer() {
                 <a href="https://www.facebook.com/horneatitos.bolivia" target="_blank" rel="noreferrer">
                     <FaFacebookF className={style.icon_footer} />
                 </a>
-                <a href="https://www.instagram.com/horneatitostja" target="_blank" rel="noreferrer">
+                <a href="https://www.instagram.com/horneatito.bolivia?igsh=cmZtZnYwdGR3MXVs" target="_blank" rel="noreferrer">
                     <FaInstagram className={style.icon_footer} />
                 </a>
                 <a href="https://www.tiktok.com/@horneatito?is_from_webapp=1&sender_device=pc" target="_blank" rel="noreferrer">
                     <FaTiktok className={style.icon_footer} />
                 </a>
-                <a href="https://wa.me/59175890424?text=Hola, saber mas de sus productos" target="_blank" rel="noreferrer">
+                <a href="https://wa.me/message/OB2IWZ75IXW6O1" target="_blank" rel="noreferrer">
                     <FaWhatsapp className={style.icon_footer} />
                 </a>
             </div>

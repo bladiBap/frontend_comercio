@@ -13,9 +13,9 @@ export default function Home() {
     <main className="main min_height">
       <section className="section-1 padding-main">
         <div className="section-1-info">
-          <h2 className="title-1">
-            Consumir lo nuestro nunca se sintió tan bien
-          </h2>
+          <h1 className="slogan_title">
+            ¡Nuestros productos tradicionalmente deliciosos y ecológicamente responsables!
+          </h1>
           <p className="paragraph-1">
             Somos un emprendimiento que intenta concientizar el uso de empaques
             plásticos en productos alimenticios, ofreciendo una alternativa más
@@ -44,7 +44,7 @@ export default function Home() {
       </section>
       <section className="section-2 padding-main">
         <div className="section-2-container-mision">
-          <h2 className="title-2 txt-justify">Horneatitos</h2>
+          <h2 className="title-2 txt-justify">Horneatito</h2>
           <p className="paragraph-1 txt-justify">
             Estamos ubicados en la ciudad de Santa Cruz de la Sierra, para mayor
             información, puedes seguirnos en todas nuestras redes sociales.
@@ -84,7 +84,7 @@ export default function Home() {
       </section>
       <section className="section-3 padding-main">
         <div className="antecedente-container">
-          <h2 className="title-2 border-bottom">Antecedentes</h2>
+          <h2 className="title-2 border-bottom">Historia</h2>
           <p className="paragraph-1">
           Horneatito es una empresa boliviana fundada hace seis años en la ciudad 
           de Santa Cruz de la Sierra. Desde sus inicios, Horneatito se ha dedicado 

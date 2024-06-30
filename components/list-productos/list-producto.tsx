@@ -1,7 +1,7 @@
 import style from './list-producto.module.css';
 import { useRouter } from 'next/navigation';
 import { IProducto } from '../../interfaces/producto';
-import {Card, CardBody, CardFooter, Image, Button} from "@nextui-org/react";
+import {Card, CardBody, CardFooter, Image} from "@nextui-org/react";
 import { generarSlug } from '@/utils/functions';
 
 interface ListProductoProps {

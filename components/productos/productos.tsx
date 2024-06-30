@@ -17,7 +17,7 @@ export default function ProductosComponent() {
     const fetchProductos = async () => {
         getProductos().then((res) => {
             if (res.success) {
-                setProductos(res.data);
+                setProductos(res.data.productos);
             }
         }).catch((err) => {
             console.log(err);

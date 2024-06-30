@@ -77,7 +77,6 @@
     font-weight: 600;
 }
 
-/* that disappears from right to left */
 .hide_cart{
     transform: translateX(-120%);
     opacity: 0;
@@ -115,8 +114,9 @@
 }
 
 .option_order{
-    display: grid;
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
     gap: 20px;
     height: fit-content;
 }

@@ -9,6 +9,8 @@ import {Navbar, NavbarBrand, NavbarContent, NavbarItem,
     DropdownMenu, Avatar, NavbarMenu, NavbarMenuItem, NavbarMenuToggle} from '@nextui-org/react';
 import { getUserByToken } from '@/services/usuario-service';
 
+const  baseUrl = process.env.NEXT_PUBLIC_API_URL;
+
 export default function Navigation() {
     const router = useRouter();
     const [areUser, setAreUser] = useState(false);
@@ -39,7 +41,7 @@ export default function Navigation() {
         if (user === undefined || user.img_url === null || user.img_url === "") {
             return "/image/none_user.png";
         }else{
-            return user.img_url;
+            return `${baseUrl}/${user.img_url}`;
         }
     }
 
@@ -120,14 +122,11 @@ export default function Navigation() {
                             {JSON.parse(sessionStorage.getItem("usuario")).nombre}
                         </strong>
                     </DropdownItem>
-                    {/* <DropdownItem>
-                        <Link
-                            color="foreground"
-                            href="/perfil"
+                    <DropdownItem
+                        href="/perfil"
                         >
-                            Perfil
-                        </Link>
-                    </DropdownItem> */}
+                        Perfil
+                    </DropdownItem>
                     <DropdownItem onClick={() => {
                         sessionStorage.removeItem("token");
                         sessionStorage.removeItem("usuario");

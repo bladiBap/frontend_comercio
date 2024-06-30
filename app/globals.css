@@ -10,6 +10,14 @@
     --color-white: #ffffff;
 }
 
+.loading {
+    left: 50%;
+    top: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+}
+
 .padding-main{
     padding-left: 280px;
     padding-right: 280px;
@@ -138,6 +146,13 @@
     color: #000000;
 }
 
+.slogan_title{
+    font-size: 3rem;
+    font-weight: 700;
+    line-height: 1.1;
+    color: #000000;
+}
+
 .title-2{
     width: 100%;
     font-size: 2.2rem;
@@ -244,6 +259,10 @@
         padding-left: 100px;
         padding-right: 100px;
     }
+
+    .slogan_title{
+        font-size: 2.5rem;
+    }
 }
 
 @media (max-width: 1024px){
@@ -258,6 +277,11 @@
 
     .section-3{
         grid-template-columns: 1fr;
+    }
+
+    .slogan_title{
+        font-size: 2rem;
+        max-width: 100%;
     }
 }
 
