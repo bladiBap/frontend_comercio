@@ -359,7 +359,7 @@ export default function Carrito() {
                                                 showToast("Orden cancelada", "error");
                                             }}
                                             onApprove = {async (data, actions) => {
-                                                actions.order.capture()
+                                                await actions.order.capture()
                                                 let usuario = sessionStorage.getItem("usuario");
                                                 usuario = JSON.parse(usuario);
                                                 let res = await crearPedido(usuario.fk_carrito);
