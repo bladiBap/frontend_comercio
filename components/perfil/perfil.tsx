@@ -4,7 +4,8 @@ import { useEffect, useState } from 'react';
 import { Input, Avatar, Button, ButtonGroup, Chip, Accordion, 
     AccordionItem, CircularProgress, Divider} from '@nextui-org/react';
 import Image from "next/image";
-import {getMyProfile} from '@/services/usuario-service';
+import {getMyProfile, updateUsuario} from '@/services/usuario-service';
+import { toast } from 'react-toastify';
 
 const base_Url = process.env.NEXT_PUBLIC_API_URL;
 
@@ -28,7 +29,6 @@ export default function Perfil (){
                 setUser(res.data.usuario);
                 setUserClone(res.data.usuario);
                 setPedidos(res.data.pedidos);
-                console.log(res.data.usuario);
                 setUserNamesFixed(res.data.usuario.nombre + " " + res.data.usuario.apellido);
                 setUserEmail(res.data.usuario.email);
             }).catch((error) => {
@@ -82,9 +82,86 @@ export default function Perfil (){
     const getUrlImage = () => {
         if (imageFile) {
             return imageBase64;
-        }else{
+        }else if (User?.img_url !== '') {
             return `${base_Url}/${User?.img_url}`;
+        }else{
+            return '/image/none_user.png';
         }
+    }
+
+    const showToast = (message: string, type: String) => {
+        return toast(message, {
+            type: type,
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+        });
+    };
+
+    const submitForm = (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        setDoClickSend(true);
+
+        if (!isValidTexto(User?.nombre) || !isValidTexto(User?.apellido) || !isValidCorreo(User?.email)) {
+            showToast('Verifique los datos ingresados', 'error');
+            return;
+        }
+
+        console.log(User?.telefono);
+
+        if (!isValidTelefono(User?.telefono) && User?.telefono.trim() !== '') {
+            showToast('Verifique los datos ingresados', 'error');
+            return;
+        }
+
+        const formData = new FormData();
+        
+        if (User?.nombre.trim() !== ''){
+            formData.append('nombre', User?.nombre);
+        }
+
+        if (User?.apellido.trim() !== ''){
+            formData.append('apellido', User?.apellido);
+        }
+
+        if (User?.telefono.trim() !== ''){
+            formData.append('telefono', User?.telefono);
+        }
+
+        if (User?.direccion.trim() !== ''){
+            formData.append('direccion', User?.direccion);
+        }
+
+        if (User?.email.trim() !== ''){
+            formData.append('email', User?.email.trim());
+        }
+
+        if (imageFile) {
+            formData.append('imagen', imageFile);
+        }
+
+        fetchUpdateUser(formData);
+    }
+
+    const fetchUpdateUser = async (formData) => {
+        let user = sessionStorage.getItem('usuario');
+        updateUsuario(JSON.parse(user).id, formData).then((res) => {
+            if (res.success) {
+                showToast('Datos actualizados', 'success');
+                sessionStorage.setItem('usuario', JSON.stringify(res.data));
+                window.location.reload();
+            }else{
+                showToast('Error al actualizar los datos', 'error');
+            }
+        }).catch((error) => {
+            console.log(error);
+            showToast('Error al actualizar los datos', 'error');
+        })
     }
 
     return (
@@ -98,7 +175,7 @@ export default function Perfil (){
                     <div className = {style.container + " min_height padding-main separation_to_top"}>
                         <h1 className="title_page">Mi perfil</h1>
                         <Divider/>
-                        <section className = {style.user_information}>
+                        <form className = {style.user_information} onSubmit={submitForm}>
                             <figure className={style.user_image_container}>
                                 <Avatar src={getUrlImage()} isBordered  
                                     className={style.user_image} />
@@ -134,7 +211,9 @@ export default function Perfil (){
                                                 <Button size="sm" className= {style.color + ' ' + style.font_w}
                                                     onPress={() => { setOriginalDataUser(); }}
                                                     >Cancelar</Button>
-                                                <Button size="sm" className= {style.font_w} color="default" >Guardar</Button> 
+                                                <Button size="sm" className= {style.font_w} color="default" 
+                                                    type="submit"
+                                                    >Guardar</Button> 
                                             </>
                                         ) : (
                                             <Button size="sm" className= {style.font_w} color="default"
@@ -181,9 +260,9 @@ export default function Perfil (){
                                         onValueChange={(e)=>{
                                             setUser({...User, telefono: getValidValue(e)});
                                         }}
-                                        isInvalid={!isValidTelefono(User?.telefono) && doClickSend}
-                                        errorMessage={(doClickSend && !isValidTelefono(User?.telefono)) ? "Ingrese un teléfono válido" : ""}
-                                        color = {(doClickSend && !isValidTelefono(User?.telefono)) ? "danger" : "default"}
+                                        isInvalid={!isValidTelefono(User?.telefono) && doClickSend && User?.telefono.trim() !== ''}
+                                        errorMessage={(doClickSend && !isValidTelefono(User?.telefono) && User?.telefono.trim() !== '' ) ? "Ingrese un teléfono válido" : ""}
+                                        color = {(doClickSend && !isValidTelefono(User?.telefono) && User?.telefono.trim() !== '' ) ? "danger" : "default"}
                                         placeholder="Ingrese su nombre" 
                                         />
                                     <Input type="text"
@@ -195,9 +274,6 @@ export default function Perfil (){
                                         onValueChange={(e)=>{
                                             setUser({...User, direccion: getValidValue(e)});
                                         }}
-                                        isInvalid={!isValidTexto(User?.direccion) && doClickSend}
-                                        errorMessage={(doClickSend && !isValidTexto(User?.direccion)) ? "Ingrese su dirección" : ""}
-                                        color = {(doClickSend && !isValidTexto(User?.direccion)) ? "danger" : "default"}
                                         placeholder="Ingrese su nombre" 
                                         />
 
@@ -217,7 +293,7 @@ export default function Perfil (){
                                         />
                                 </div>
                             </div>
-                        </section>
+                        </form>
                         <section className = {style.user_orders}>
                             <h2 className = {style.subtitle_page}>Pedidos</h2>
                             {( Pedidos && Pedidos.length > 0) ? (
