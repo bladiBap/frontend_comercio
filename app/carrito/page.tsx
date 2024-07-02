@@ -111,12 +111,10 @@ export default function Carrito() {
         if (verificarCamposInformacion() === false){
             return;
         }
-
-        let direccionAux = (selectedOption === TypeOrder.DOMICILIO) ? direccion : sucursalSelected.values().next().value;
-        localStorage.setItem("direccion", direccionAux);
-        localStorage.setItem("nombre", nombre);
-        localStorage.setItem("correo", correo);
-
+        let direccionAux = (selectedOption === TypeOrder.DOMICILIO) ? direccion : sucursales.find(sucursal => sucursal.id === sucursalSelected.values().next().value).nombre;
+        sessionStorage.setItem("nombre", nombre);
+        sessionStorage.setItem("correo", correo);
+        sessionStorage.setItem("direccion", direccionAux);
         setShowCheckout(false);
         setShowCart(false);
         setReturnFromPayment(false);
@@ -271,20 +269,20 @@ export default function Carrito() {
 
                                         <Input type="text" variant='underlined' label="Nombre completo" placeholder="Ingrese su nombre"
                                             value={nombre} onChange={(e) => setNombre(e.target.value)}
-                                            isInvalid={(esTextoVacio(nombre) && clickPagar) ? true : false}
+                                            isInvalid={(esTextoVacio(nombre) && clickPagar)}
                                             errorMessage = {(esTextoVacio(nombre) && clickPagar) ? "Ingrese un nombre" : ""}
                                         />
 
                                         <Input type="email" variant='underlined' label="Correo" placeholder="Correo de notificación" 
                                             value={correo} onChange={(e) => setCorreo(e.target.value)}
-                                            isInvalid={(!esCorreoValido(correo) && clickPagar) ? true : false}
+                                            isInvalid={(!esCorreoValido(correo) && clickPagar)}
                                             errorMessage = {(!esCorreoValido(correo) && clickPagar) ? "Ingrese un correo válido" : ""}
                                         />
 
                                         <Input className={`${style.show} ${selectedOption === TypeOrder.DOMICILIO ? "" : style.hide_address}`}
                                             type="text" variant='underlined' label="Dirección de envio" placeholder="Ingrese su dirección" 
                                             value={direccion} onChange={(e) => setDireccion(e.target.value)}
-                                            isInvalid={(esTextoVacio(direccion) && clickPagar) ? true : false}
+                                            isInvalid={(esTextoVacio(direccion) && clickPagar)}
                                             errorMessage = {(esTextoVacio(direccion) && clickPagar) ? "Ingrese una dirección" : ""}
                                         />
                                         <Select
@@ -362,13 +360,21 @@ export default function Carrito() {
                                                 await actions.order.capture()
                                                 let usuario = sessionStorage.getItem("usuario");
                                                 usuario = JSON.parse(usuario);
-                                                let res = await crearPedido(usuario.fk_carrito);
-                                                if (res.success){
-                                                    showToast("Pedido realizado con éxito", "success");
-                                                    router.push("/perfil");
-                                                }else{
-                                                    showToast("Error al realizar el pedido", "error");
-                                                }
+                                                let esdelivery = sessionStorage.getItem("option") === "domicilio";
+                                                let nombreUsuario = sessionStorage.getItem("nombre");
+                                                let correoUsuario = sessionStorage.getItem("correo");
+                                                let direccionUsuario = sessionStorage.getItem("direccion");
+                                                let res = await crearPedido(usuario.fk_carrito, esdelivery, nombreUsuario, direccionUsuario, correoUsuario);
+                                                // if (res.success){
+                                                //     showToast("Pedido realizado con éxito", "success");
+                                                //     sessionStorage.removeItem("option");
+                                                //     sessionStorage.removeItem("nombre");
+                                                //     sessionStorage.removeItem("correo");
+                                                //     sessionStorage.removeItem("direccion");
+                                                //     router.push("/perfil");
+                                                // }else{
+                                                //     showToast("Error al realizar el pedido", "error");
+                                                // }
                                             }}
                                         />
                                     </PayPalScriptProvider>

@@ -67,13 +67,19 @@ const checkOut = async (
     return data;
 }
 
-const crearPedido = async (fk_carrito: number): Promise<IResponse> => {
+const crearPedido = async (fk_carrito: number, esdelivery: boolean, nombre: string, direccion: string, correo: string): Promise<IResponse> => {
     const res = await fetch(`${base_url}/create_pedido`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({fk_carrito: fk_carrito})
+        body: JSON.stringify({
+            fk_carrito: fk_carrito,
+            esdelivery: esdelivery,
+            nombre: nombre,
+            direccion: direccion,
+            correo: correo
+        })
     });
     const data = await res.json();
     return data;
