@@ -30,7 +30,7 @@ export const metadata = {
     siteName: "Horneatitos",
     images: [
       {
-        url: "https://horneatitos.shop/api/public/imagenes/logo.png",
+        url: "https://horneatitos.shop/api/public/imagenes/productos/horneatito.jpg",
         width: 800,
         height: 600,
         alt: "Horneatitos",
@@ -41,7 +41,7 @@ export const metadata = {
   },
   title : {
     template : "%s | Horneatitos",
-    default : "Horneatitos",
+    default : "Horneatitos | Panadería tradicional y ecológica",
   },
   description : "Bienvenidos a Horneatitos, la panadería tradicionalmente deliciosa y ecológicamente responsable.",
 }
@@ -54,6 +54,7 @@ export default function RootLayout({
   return (
     <html lang="es">
       <head>
+        <link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon.png"></link>
         <link rel="icon" type="image/png" sizes="16x16" href="/icon16x16.png" />
         <link rel="icon" type="image/png" sizes="32x32" href="/icon32x32.png" />
       </head>

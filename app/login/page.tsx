@@ -16,7 +16,7 @@ export function generateMetadata() {
             siteName: "Horneatitos",
             images: [
                 {
-                    url: "https://horneatitos.shop/api/public/imagenes/logo.png",
+                    url: "https://horneatitos.shop/api/public/imagenes/productos/horneatito.jpg",
                     width: 800,
                     height: 600,
                     alt: "Horneatitos",

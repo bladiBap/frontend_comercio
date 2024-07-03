@@ -4,9 +4,7 @@ import Image from "next/image";
 export default function Home() {
   
   const redirectoToContact = () => {
-    let numberWhatsapp = "75890424";
-    let message = "Hola, me gustaría contactar con ustedes";
-    window.open(`https://wa.me/591${numberWhatsapp}?text=${message}`, "_blank");
+    window.open(`https://wa.me/message/OB2IWZ75IXW6O1`, "_blank");
   };
 
   return (
@@ -27,12 +25,12 @@ export default function Home() {
               redirectoToContact();
             }}
           >
-            Contactanos
+            Contáctanos
           </Link>
         </div>
         <figure className="container-image-1">
           <Image
-            className="imagen-1 image-style imagen-animation"
+            className="imagen-1 image-style"
             src="/image/diseno-mark3.jpg"
             alt="Logo"
             width={40}

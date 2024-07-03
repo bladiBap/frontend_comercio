@@ -13,16 +13,17 @@
     justify-content: flex-start;
     align-items: center;
     gap: 20px;
-    height: 80px;
+    height: 90px;
 }
 
 .title_logo_info{
-    font-size:20px;
+    font-size:18px;
     font-weight: bold;
+    margin-bottom: 10px;
 }
 
 .txt_white{
-    color: var(--color-white);
+    color: var(--color-white) !important;
     width: 100%;
 }
 
@@ -56,36 +57,33 @@
     margin-top: 20px;
 }
 
+.container_footer_info{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 20px;
+}
 @media screen and (max-width: 768px){
     .footer{
         padding-top: 20px;
         padding-bottom: 20px;
     }
 
-    .container_footer_logo{
-        gap: 10px;
-    }
-
     .title_logo_info{
         font-size: 16px;
-    }
-
-    .logo_footer{
-        width: 80px;
     }
 
     .icon_footer{
         font-size: 25px;
     }
-}
 
-@media screen and (max-width: 570px){
-    .container_footer_logo{
-        justify-content: center;
+    .title_links{
+        font-size: 16px;
     }
-}
 
-@media screen and (max-width: 450px){
+    .divider{
+        display: none;
+    }
 
     .container_footer_logo{
         display: flex;
@@ -93,11 +91,21 @@
         justify-content: flex-start;
         align-items: flex-start;
         height: auto;
+        gap: 10px;
+    }
+}
+
+@media screen and (max-width: 570px){
+    .container_footer_logo{
+        justify-content: center;
     }
 
-    .divider{
-        display: none;
+    .txt_p{
+        font-size: 14px !important;
     }
+}
+
+@media screen and (max-width: 450px){
 
     .txt_white{
         font-size: 14px;
@@ -110,5 +118,24 @@
     .container_icons{
         gap: 10px;
         margin-top: 0px;
+    }
+
+    .container_footer_info{
+        flex-direction: column;
+        gap: 10px;
+        justify-content: center;
+    }
+
+    .container_footer_logo{ 
+        justify-content: center;
+        align-items: center;
+    }
+
+    .container_info_atencion > *, .container_footer_links > *{
+        text-align: center !important;
+    }
+
+    .container_links > * {
+        justify-content: center !important;
     }
 }

@@ -127,7 +127,7 @@ export default function Navigation() {
                         >
                         Perfil
                     </DropdownItem>
-                    <DropdownItem onClick={() => {
+                    <DropdownItem onPress={() => {
                         sessionStorage.removeItem("token");
                         sessionStorage.removeItem("usuario");
                         window.location.href = "/";
@@ -143,13 +143,12 @@ export default function Navigation() {
                         </strong>
                     </DropdownItem>
                     <DropdownItem
-                        onClick={() => {
+                        onPress={() => {
                             router.push("/login")
                         }}
                         >
                         Iniciar Sesión
                     </DropdownItem>
-                    {/* <DropdownItem>Registrarse</DropdownItem> */}
                 </DropdownMenu>
             )
         }

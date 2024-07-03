@@ -1,24 +1,35 @@
 import style from './footer.module.css';
 import Image from "next/image";
 import { FaFacebookF, FaInstagram, FaTiktok, FaWhatsapp    } from "react-icons/fa";
+import {Link} from "@nextui-org/react";
 
 export default function Footer() {
     return (
         <footer className={style.footer + " padding-main"}>
-            <div className={style.container_footer_logo}>
-                <Image
-                    className={style.logo_footer}
-                    src="/image/logo.png"
-                    alt="Logo"
-                    width={10}
-                    height={10}
-                    unoptimized
-                    priority={true}/>
-                <div className={style.divider}></div>
-                <div>
-                    <h2 className={style.txt_white + " " + style.title_logo_info}>Atención</h2>
-                    <p className={style.txt_white}>Lunes a Viernes: 8:00 AM - 6:00 PM</p>
-                    <p className={style.txt_white}>Sábados: 9:00 AM - 1:00 PM</p>
+            <div className={style.container_footer_info}>
+                <div className={style.container_footer_logo}>
+                    <Image
+                        className={style.logo_footer}
+                        src="/image/logo.png"
+                        alt="Logo"
+                        width={10}
+                        height={10}
+                        unoptimized
+                        priority={true}/>
+                    <div className={style.divider}></div>
+                    <div className={style.container_info_atencion}>
+                        <h2 className={style.txt_white + " " + style.title_logo_info}>Atención</h2>
+                        <p className={style.txt_white +" "+ style.txt_p}>Lunes a Viernes: 8:00 AM - 6:00 PM</p>
+                        <p className={style.txt_white +" "+ style.txt_p}>Sábados: 9:00 AM - 1:00 PM</p>
+                    </div>
+                </div>
+
+                <div className={style.container_footer_links}>
+                    <h3 className={style.txt_white + " " + style.title_logo_info} >Acerca de Horneatito</h3>
+                    <div className={style.container_links}>
+                        <Link href="/" className={style.txt_white +" "+ style.txt_p}>Nosotros</Link>
+                        <Link href="/productos" className={style.txt_white +" "+ style.txt_p}>Productos</Link>
+                    </div>
                 </div>
             </div>
             <div className={style.container_icons}>
