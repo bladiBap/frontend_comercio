@@ -365,23 +365,23 @@ export default function Carrito() {
                                                 let correoUsuario = sessionStorage.getItem("correo");
                                                 let direccionUsuario = sessionStorage.getItem("direccion");
                                                 let res = await crearPedido(usuario.fk_carrito, esdelivery, nombreUsuario, direccionUsuario, correoUsuario);
-                                                // if (res.success){
-                                                //     showToast("Pedido realizado con éxito", "success");
-                                                //     sessionStorage.removeItem("option");
-                                                //     sessionStorage.removeItem("nombre");
-                                                //     sessionStorage.removeItem("correo");
-                                                //     sessionStorage.removeItem("direccion");
-                                                //     router.push("/perfil");
-                                                // }else{
-                                                //     showToast("Error al realizar el pedido", "error");
-                                                // }
+                                                if (res.success){
+                                                    showToast("Pedido realizado con éxito", "success");
+                                                    sessionStorage.removeItem("option");
+                                                    sessionStorage.removeItem("nombre");
+                                                    sessionStorage.removeItem("correo");
+                                                    sessionStorage.removeItem("direccion");
+                                                    router.push("/perfil");
+                                                }else{
+                                                    showToast("Error al realizar el pedido", "error");
+                                                }
                                             }}
                                         />
                                     </PayPalScriptProvider>
                                 </div>
                             </div>
                             <figure className={style.payment_image_container}>
-                                <Image src="/image/pay.jpg" alt="pay" 
+                                <Image src="/image/pay.webp" alt="pay" 
                                     className={style.payment_image}
                                     width={100} height={100}
                                     unoptimized

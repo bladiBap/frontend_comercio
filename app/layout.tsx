@@ -14,7 +14,7 @@ export const metadata = {
   alternates : {
     canonical: new URL ("https://horneatitos.shop"),
   },
-  keywords : ["Horneatitos", "Panaderia", "Pan", "Bizcocho", "Bizcocho de maiz",
+  keywords : ["Horneatitos","horneatitos", "Panaderia", "Pan", "Bizcocho", "Bizcocho de maiz",
               "Bizcocho de maíz", "Cuñape", "Cuñapé", "Cuñape abizcochado", "Jallula",
               "Comercio electronico", "Tienda online", "Tienda virtual", "Tienda de pan",
               "Panaderia Artesanal", "Panaderia Ecologica", 

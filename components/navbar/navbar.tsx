@@ -39,7 +39,7 @@ export default function Navigation() {
     const GetUserImage = () => {
         let user = JSON.parse(sessionStorage.getItem("usuario"));
         if (user === undefined || user.img_url === null || user.img_url === "") {
-            return "/image/none_user.png";
+            return "/image/none_user.webp";
         }else{
             return `${baseUrl}/${user.img_url}`;
         }
@@ -171,7 +171,7 @@ export default function Navigation() {
                 <NavbarBrand className="mr-4">
                     <Image
                         className={style.logo}
-                        src="/image/logo.png"
+                        src="/image/logo.webp"
                         alt="Logo"
                         width={40}
                         height={40}
@@ -212,7 +212,7 @@ export default function Navigation() {
                         className="transition-transform"
                         name="Jason Hughes"
                         size="sm"
-                        src={ areUser ? GetUserImage() : "/image/none_user.png"}
+                        src={ areUser ? GetUserImage() : "/image/none_user.webp"}
                         />
                     </DropdownTrigger>
                     

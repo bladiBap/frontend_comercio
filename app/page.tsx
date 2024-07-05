@@ -2,10 +2,6 @@
 import { Link } from "@nextui-org/react";
 import Image from "next/image";
 export default function Home() {
-  
-  const redirectoToContact = () => {
-    window.open(`https://wa.me/message/OB2IWZ75IXW6O1`, "_blank");
-  };
 
   return (
     <main className="main min_height">
@@ -16,22 +12,19 @@ export default function Home() {
           </h1>
           <p className="paragraph-1">
             Somos un emprendimiento que intenta concientizar el uso de empaques
-            plásticos en productos alimenticios, ofreciendo una alternativa más
-            sostenible y amigable con el medio ambiente.
+            plásticos en productos alimenticios, ofreciendo una alternativa ecológicamente más responsable y amigable con el medio ambiente.
           </p>
           <Link
             className="link-Button cursor-pointer"
-            onClick={() => {
-              redirectoToContact();
-            }}
+            href="/productos"
           >
-            Contáctanos
+            Ver productos
           </Link>
         </div>
         <figure className="container-image-1">
           <Image
             className="imagen-1 image-style"
-            src="/image/diseno-mark3.jpg"
+            src="/image/diseno-mark3.webp"
             alt="Logo"
             width={40}
             height={40}
@@ -44,8 +37,10 @@ export default function Home() {
         <div className="section-2-container-mision">
           <h2 className="title-2 txt-justify">Horneatito</h2>
           <p className="paragraph-1 txt-justify">
-            Estamos ubicados en la ciudad de Santa Cruz de la Sierra, para mayor
-            información, puedes seguirnos en todas nuestras redes sociales.
+            Estamos ubicados en la ciudad de Santa Cruz de la Sierra, ven y disfruta de nuestros productos,
+            con la mejor calidad y sabor.
+            Nuestra fábrica, proporciona un ambiente de trabajo seguro y agradable para nuestro equipo,
+            para mayor información, puedes seguirnos en todas nuestras redes sociales.
           </p>
         </div>
         <div className="info-mision-vision">
@@ -70,7 +65,7 @@ export default function Home() {
           <figure className="banner-container">
             <Image
               className="imagen-banner radius-top"
-              src="/image/banner-1.jpg"
+              src="/image/banner-1.webp"
               alt="Banner"
               width={40}
               height={40}
@@ -90,7 +85,10 @@ export default function Home() {
           tradicional boliviano altamente valorado por su sabor y calidad. <br /><br />
           Nuestra fábrica, estratégicamente ubicada en el segundo anillo de Paragua, 
           nos permite servir de manera eficiente a nuestros clientes en varios 
-          departamentos del país, incluyendo La Paz, Cochabamba, Tarija, Chuquisaca y Beni.
+          departamentos del país, incluyendo La Paz, Cochabamba, Tarija, Chuquisaca y Beni. <br /><br />
+          La demanda de productos tradicionales y la preocupación por el impacto ambiental 
+          de los residuos plásticos han impulsado a Horneatito a adoptar prácticas innovadoras y 
+          sostenibles. A través de este proyecto
           <br /><br />
           Nuestro equipo está compuesto por personas altamente capacitadas 
           y dedicadas, que comparten nuestra visión de ofrecer productos de 
@@ -100,7 +98,7 @@ export default function Home() {
         <figure className="container-imagen-antecedentes">
           <Image
             className="imagen-antecendetes image-style"
-            src="/image/diseno-mark1.jpg"
+            src="/image/diseno-mark1.webp"
             alt="Logo"
             width={40}
             height={40}

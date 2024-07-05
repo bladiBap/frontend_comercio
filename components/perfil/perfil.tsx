@@ -85,7 +85,7 @@ export default function Perfil (){
         }else if (User?.img_url !== '') {
             return `${base_Url}/${User?.img_url}`;
         }else{
-            return '/image/none_user.png';
+            return '/image/none_user.webp';
         }
     }
 
@@ -111,8 +111,6 @@ export default function Perfil (){
             showToast('Verifique los datos ingresados', 'error');
             return;
         }
-
-        console.log(User?.telefono);
 
         if (!isValidTelefono(User?.telefono) && User?.telefono.trim() !== '') {
             showToast('Verifique los datos ingresados', 'error');
@@ -152,7 +150,6 @@ export default function Perfil (){
         let user = sessionStorage.getItem('usuario');
         updateUsuario(JSON.parse(user).id, formData).then((res) => {
             if (res.success) {
-                showToast('Datos actualizados', 'success');
                 sessionStorage.setItem('usuario', JSON.stringify(res.data));
                 window.location.reload();
             }else{

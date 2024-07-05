@@ -274,7 +274,7 @@ export default function LoginComponent() {
                     >¿Ya tienes una cuenta? Inicia sesión.</p>
                 </form>
                 <figure>
-                    <Image src="/image/diseno-mark5.jpg" alt="Login" 
+                    <Image src="/image/diseno-mark5.webp" alt="Login" 
                         className={style.login_image}
                         width={100} height={100}
                         unoptimized

@@ -10,7 +10,7 @@ export default function Footer() {
                 <div className={style.container_footer_logo}>
                     <Image
                         className={style.logo_footer}
-                        src="/image/logo.png"
+                        src="/image/logo.webp"
                         alt="Logo"
                         width={10}
                         height={10}

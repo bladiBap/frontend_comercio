@@ -68,9 +68,11 @@ const checkOut = async (
 }
 
 const crearPedido = async (fk_carrito: number, esdelivery: boolean, nombre: string, direccion: string, correo: string): Promise<IResponse> => {
+    let token = sessionStorage.getItem('token');
     const res = await fetch(`${base_url}/create_pedido`, {
         method: 'POST',
         headers: {
+            'Authorization': `Bearer ${token}`,
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
