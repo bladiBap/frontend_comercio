@@ -28,7 +28,7 @@ export default function BuscarList({ params }: any) {
             setIsLoading(true);
             buscarProductos(nombre).then((response) => {
                 if (response.success){
-                    setProductos(response.data);
+                    setProductos(response.data.productos);
                 }
             }).catch((error) => {
                 console.log(error);
